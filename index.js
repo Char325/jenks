@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
+app.get('/status', (req, res) => {
   res.json({ status: 'API is running' });
 });
 
