@@ -1,2 +1,2 @@
 creating a sample txt file
-This is the second line
+This is the second line.
