@@ -18,8 +18,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'npm install'
-                bat 'npm test'
+                sh 'npm install'
+                sh 'npm test'
             }
         }
         stage('Push') {
@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy to Blue') {
             steps {
                 script {
-                    bat 'docker run -d -p 3001:3000 --name=blue charu325/node-app:latest'
+                    sh 'docker run -d -p 3001:3000 --name=blue charu325/node-app:latest'
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline {
         stage('Deploy to Green') {
             steps {
                 script {
-                    bat 'docker run -d -p 3002:3000 --name=green charu325/node-app:latest'
+                    sh 'docker run -d -p 3002:3000 --name=green charu325/node-app:latest'
                 }
             }
         }
@@ -64,7 +64,7 @@ pipeline {
         stage('Stop Blue') {
             steps {
                 script {
-                    bat 'docker stop blue && docker rm blue'
+                    sh 'docker stop blue && docker rm blue'
                 }
             }
         }
