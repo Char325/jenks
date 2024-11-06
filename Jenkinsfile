@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('model-lab-git')
+        PATH = "home/snucse/.nvm/versions/node/v22.11.0/bin/npm"
     }
     stages {
         stage('Checkout') {
@@ -18,8 +19,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'sudo npm install'
-                sh 'npm test'
+                sh 'sudo /usr/bin/npm install' 
+                sh '/usr/bin/npm test'
             }
         }
         stage('Push') {
