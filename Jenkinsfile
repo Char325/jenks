@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('charu325')
+        DOCKERHUB_CREDENTIALS = credentials('github-jenks-cred')
     }
     stages {
         stage('Checkout') {
