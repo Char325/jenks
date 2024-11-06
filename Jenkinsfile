@@ -13,7 +13,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerImage = docker.build("charu325/node-app")
+                    sh 'docker build -t charu325/node-app:latest Dockerfile'
+                    sh 'docker build -t charu325/node-app:latest .'
+                    
                 }
             }
         }
