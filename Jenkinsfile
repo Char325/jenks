@@ -31,7 +31,7 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    docker.withRegistry('', ${DOCKERHUB_CREDENTIALS}) {
+                    docker.withRegistry('','docker-hub-credentials') {
                         dockerImage.push("charu325/node-app:latest")
                     }
                 }
