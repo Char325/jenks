@@ -41,7 +41,11 @@ pipeline {
         stage('Deploy to Blue') {
             steps {
                 script {
-                    bat 'docker run -d -p 3001:3000 --name=blue charu325/node-app:latest'
+                    bat '''
+                    docker stop blue || exit 0
+                    docker rm blue || exit 0
+                    docker run -d -p 3001:3000 --name=blue charu325/node-app:latest
+                    '''
                 }
             }
         }
@@ -56,7 +60,11 @@ pipeline {
         stage('Deploy to Green') {
             steps {
                 script {
-                    bat 'docker run -d -p 3002:3000 --name=green charu325/node-app:latest'
+                   bat '''
+                    docker stop green || exit 0
+                    docker rm green || exit 0
+                    docker run -d -p 3001:3000 --name=green charu325/node-app:latest
+                    '''
                 }
             }
         }
