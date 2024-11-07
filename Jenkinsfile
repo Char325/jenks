@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('model-lab-git')
+        DOCKERHUB_CREDENTIALS = credentials('github-jenks-cred')
         //PATH = "home/snucse/.nvm/versions/node/v22.11.0/bin/npm"
     }
     stages {
