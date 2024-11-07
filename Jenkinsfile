@@ -63,7 +63,7 @@ pipeline {
                    bat '''
                     docker stop green || exit 0
                     docker rm green || exit 0
-                    docker run -d -p 3001:3000 --name=green charu325/node-app:latest
+                    docker run -d -p 3002:3000 --name=green charu325/node-app:latest
                     '''
                 }
             }
