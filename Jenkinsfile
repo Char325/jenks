@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('github-jenks-cred')
+        DOCKERHUB_CREDENTIALS = credentials('docker-jenks-creds')
         //PATH = "home/snucse/.nvm/versions/node/v22.11.0/bin/npm"
     }
     stages {
