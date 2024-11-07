@@ -71,7 +71,7 @@ pipeline {
         stage('Stop Blue') {
             steps {
                 script {
-                    sh 'docker stop blue && docker rm blue'
+                    bat 'docker stop blue && docker rm blue'
                 }
             }
         }
