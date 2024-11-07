@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    bat 'docker build -t charu325/node-app:latest Dockerfile'
+                    //bat 'docker build -t charu325/node-app:latest Dockerfile'
                     bat 'docker build -t charu325/node-app:latest .'
                     
                 }
