@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('','docker-hub-credentials') {
-                        dockerImage.push("charu325/node-app:latest")
+                        dockerImage.push('latest')
                     }
                 }
             }
