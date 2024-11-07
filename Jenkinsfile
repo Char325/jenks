@@ -31,7 +31,7 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    docker.withRegistry('', charu325) {
+                    docker.withRegistry('', DOCKERHUB_CREDENTIALS) {
                         dockerImage.push("latest")
                     }
                 }
