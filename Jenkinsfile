@@ -15,6 +15,7 @@ pipeline {
                 script {
                     //bat 'docker build -t charu325/node-app:latest Dockerfile'
                     bat 'docker build -t charu325/node-app:latest .'
+                    dockerImage = docker.build('charu325/node-app:latest')
                     
                 }
             }
