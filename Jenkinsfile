@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('model-lab-git')
-        PATH = "home/snucse/.nvm/versions/node/v22.11.0/bin/npm"
+        //PATH = "home/snucse/.nvm/versions/node/v22.11.0/bin/npm"
     }
     stages {
         stage('Checkout') {
@@ -13,16 +13,18 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t charu325/node-app:latest Dockerfile'
-                    sh 'docker build -t charu325/node-app:latest .'
+                    bat 'docker build -t charu325/node-app:latest Dockerfile'
+                    bat 'docker build -t charu325/node-app:latest .'
                     
                 }
             }
         }
         stage('Test') {
             steps {
-                sh 'sudo /usr/bin/npm install' 
-                sh '/usr/bin/npm test'
+                //sh 'sudo /usr/bin/npm install' 
+                //sh '/usr/bin/npm test'
+                bat 'npm install'
+                bat 'npm test'
             }
         }
         stage('Push') {
@@ -37,7 +39,7 @@ pipeline {
         stage('Deploy to Blue') {
             steps {
                 script {
-                    sh 'docker run -d -p 3001:3000 --name=blue charu325/node-app:latest'
+                    bat 'docker run -d -p 3001:3000 --name=blue charu325/node-app:latest'
                 }
             }
         }
@@ -52,7 +54,7 @@ pipeline {
         stage('Deploy to Green') {
             steps {
                 script {
-                    sh 'docker run -d -p 3002:3000 --name=green charu325/node-app:latest'
+                    bat 'docker run -d -p 3002:3000 --name=green charu325/node-app:latest'
                 }
             }
         }
